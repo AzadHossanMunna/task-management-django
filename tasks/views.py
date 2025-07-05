@@ -8,7 +8,7 @@ def user_dashboard(request):
     return render(request,"dashboard/user-dashboard.html")
 def test(request):
     context={
-        "name":["Mahmud","Ahamed","John"],
+        "names":["Mahmud","Ahamed","John","new man"],
         "age":23
     }
     return render(request,'test.html',context)

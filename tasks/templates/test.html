@@ -8,7 +8,20 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-    {{name}}
-    <p class="lal-bg">{{age}}</p>
+    {% with  count=o  %}
+      
+    
+        {% for name in names %}
+            {% if not name == 'John' %}
+            
+        
+            <p>{{name}}</p>
+            {% endif %}
+            {{ count|add:1 }}
+            {% endfor %}
+            {{count}}
+     {% endwith %}
+   
+    
 </body>
 </html>
