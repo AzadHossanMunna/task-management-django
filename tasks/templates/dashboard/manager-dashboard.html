@@ -1,0 +1,84 @@
+{% extends "dashboard/dashboard.html" %}
+     
+{% block title %}
+Manager Dashboard
+  
+{% endblock title %}
+
+{% block tasks %}
+        
+      
+      <!-- Team Stats Grid for Manager -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-sm text-gray-500 mb-2">Team Members</h3>
+          <p class="text-3xl font-bold text-blue-500">12</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-sm text-gray-500 mb-2">Tasks Assigned</h3>
+          <p class="text-3xl font-bold text-purple-600">47</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-sm text-gray-500 mb-2">Projects Ongoing</h3>
+          <p class="text-3xl font-bold text-green-500">6</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-sm text-gray-500 mb-2">Overdue Tasks</h3>
+          <p class="text-3xl font-bold text-red-600">4</p>
+        </div>
+      </div>
+
+      <!-- Task Summary Table -->
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="text-xl font-semibold mb-4 text-gray-800">Team Task Summary</h3>
+        <div class="overflow-x-auto">
+          <table class="min-w-full text-left text-sm">
+            <thead class="text-gray-500 uppercase border-b">
+              <tr>
+                <th class="py-3 pr-6">Team Member</th>
+                <th class="py-3 pr-6">Task</th>
+                <th class="py-3 pr-6">Status</th>
+                <th class="py-3 pr-6">Due</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-700 divide-y">
+              <tr>
+                <td class="py-3 pr-6">Sabbir</td>
+                <td class="py-3 pr-6">UI Design</td>
+                <td class="py-3 pr-6 text-green-600">Completed</td>
+                <td class="py-3 pr-6">3 days ago</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-6">Munna</td>
+                <td class="py-3 pr-6">API Integration</td>
+                <td class="py-3 pr-6 text-yellow-600">In Progress</td>
+                <td class="py-3 pr-6">Due in 2 days</td>
+              </tr>
+              <tr>
+                <td class="py-3 pr-6">Nafis</td>
+                <td class="py-3 pr-6">Bug Fixing</td>
+                <td class="py-3 pr-6 text-red-500">Pending</td>
+                <td class="py-3 pr-6">Overdue</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const dateElement = document.getElementById("today-date");
+        if (dateElement) {
+          dateElement.textContent = new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+{% endblock tasks %}

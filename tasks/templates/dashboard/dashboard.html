@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>{% block title %}
+     
+   {% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <link rel="icon" href="https://i.pravatar.cc/40" />
+  </head>
+  <body class="bg-gray-100 min-h-screen font-sans antialiased">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      
+      <!-- Header -->
+      <header class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
+        <div>
+          <h1 class="text-3xl font-extrabold text-gray-800 tracking-tight">Welcome back, Azad!</h1>
+          <p class="text-sm text-gray-500">Today is <span id="today-date"></span></p>
+        </div>
+        <button
+          class="mt-4 sm:mt-0 bg-indigo-600 text-white px-5 py-2 rounded-lg shadow hover:bg-indigo-700 transition duration-200"
+        >
+          Toggle Sidebar
+        </button>
+      </header>
+
+      <!-- Profile Card -->
+      <section
+        class="bg-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between shadow-lg mb-8"
+      >
+        <div class="flex items-center gap-5">
+          <img
+            src="https://i.pravatar.cc/100?img=12"
+            alt="User Avatar"
+            class="w-20 h-20 rounded-full shadow-md border-2 border-indigo-500"
+          />
+          <div>
+            <h2 class="text-2xl font-semibold text-gray-800">Azad Hossan Munna</h2>
+            <p class="text-sm text-gray-500">Full-stack Developer</p>
+            <span class="text-xs text-green-600 font-medium">🟢 Active now</span>
+          </div>
+        </div>
+        <button
+          class="mt-6 sm:mt-0 bg-blue-500 text-white px-5 py-2 rounded-lg font-medium hover:bg-blue-600 transition duration-200"
+        >
+          Edit Profile
+        </button>
+      </section>
+
+      <!-- ✅ Put your Django block here -->
+      {% block tasks %}
+
+      {% endblock tasks %}
+
+    </div> <!-- ✅ Keep block *inside* the main container -->
+
+    <script>
+      // Set current date
+      document.getElementById("today-date").textContent = new Date().toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    </script>
+    
+  </body>
+</html>

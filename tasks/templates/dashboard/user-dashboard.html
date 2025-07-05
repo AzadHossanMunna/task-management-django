@@ -1,0 +1,62 @@
+ {% extends "dashboard/dashboard.html" %}
+ {% block title %}
+User Dashboard
+  
+{% endblock title %}
+
+ {% block tasks %}
+   
+ 
+     
+     <!-- Stats Grid for Users -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-sm text-gray-500 mb-2">Completed Tasks</h3>
+          <p class="text-3xl font-bold text-green-600">34</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-sm text-gray-500 mb-2">Active Projects</h3>
+          <p class="text-3xl font-bold text-blue-600">5</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow text-center">
+          <h3 class="text-sm text-gray-500 mb-2">Notifications</h3>
+          <p class="text-3xl font-bold text-red-500">12</p>
+        </div>
+      </div>
+
+      <!-- Personal To-Do List -->
+      <div class="bg-white rounded-xl shadow p-6">
+        <h3 class="text-xl font-semibold mb-4 text-gray-800">My To-Do List</h3>
+        <ul class="space-y-4">
+          <li class="flex justify-between items-center">
+            <span>✔️ Learn Tailwind CSS</span>
+            <span class="text-sm text-gray-400">Due: 3 days</span>
+          </li>
+          <li class="flex justify-between items-center">
+            <span>🔧 Finish Django Project</span>
+            <span class="text-sm text-gray-400">Due: 7 days</span>
+          </li>
+          <li class="flex justify-between items-center">
+            <span>📝 Submit Assignment</span>
+            <span class="text-sm text-gray-400">Due: Tomorrow</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const dateElement = document.getElementById("today-date");
+        if (dateElement) {
+          dateElement.textContent = new Date().toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
+{% endblock tasks %}
